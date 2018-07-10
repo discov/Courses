@@ -1,0 +1,27 @@
+Funciones agregado sql
+
+SUM
+MIN
+MAX
+AVG
+
+*solo numericos
+*select func(col) from tabla
+
+Funciones fecha sql
+
+DATEPART(part[DD,MM,YY],col)
+
+---------------------------------------
+
+*React*
+
+js Object.assign(destino, fuentes)	copia valores de todas las propiedades enumerables de uno o mas objetos
+								a un objeto destino, regresa el objeto destino
+js array.splice(start,amountDel,items) borra y/o inserta items apartir de un indice
+	*muta el arreglo
+js array.slice(inicio, fin)	Toma elementos en rango sin incluir fin, regresa nuevo arreglo
+	*Copia arreglo
+js concat
+	
+Mutative functions:		push, pop, shift, unshift, sort, reverse, splice, delete!?.
