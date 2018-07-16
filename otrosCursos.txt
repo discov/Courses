@@ -25,3 +25,8 @@ js array.slice(inicio, fin)	Toma elementos en rango sin incluir fin, regresa nue
 js concat
 	
 Mutative functions:		push, pop, shift, unshift, sort, reverse, splice, delete!?.
+
+--1.Clases vs 2.Functional components--
+1. Defines Components with them having or not props and state
+2. Function that takes props as input and returns jsx to be rendered
+

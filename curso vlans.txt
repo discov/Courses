@@ -210,6 +210,14 @@ por lo tanto 22 = 255.255.252.0 ya que 11111111.11111111.11111100.00000000 que e
 
 128 64 32 16 8 4 2 1
 ->
+128
+192
+224
+240
+248
+252
+254
+255
 --NetID comes from /\ increment
 example: cidr 22 -> 8.8.6.0 only matters las non zero ... 6 -> 128 64 32 16 8 4
 sixth number is 4 so that is the netid increment:
@@ -224,3 +232,10 @@ example: wich mask to use for 3k host,
 11111111.11111111.11111111.11111111 ->	... | 4096 2048 1024 512 256 . 128 64 32 16 8 4 2 1
 												wich means 1111.1111.1111.11100000.00000000
 												wich means 255.255.224.0
+
+	Variables Hosts Networks Subnetmasks
+	
+subnettingquestions.com
+How many subnets and hosts per subnet can you get from the network 172.22.0.0/24?
+255 subnets ?
+ 12864168421
