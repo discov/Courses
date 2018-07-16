@@ -11,7 +11,7 @@ AVG
 Funciones fecha sql
 
 DATEPART(part[DD,MM,YY],col)
-
+1000 0000
 ---------------------------------------
 
 *React*
