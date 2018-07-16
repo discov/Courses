@@ -219,7 +219,7 @@ por lo tanto 22 = 255.255.252.0 ya que 11111111.11111111.11111100.00000000 que e
 254
 255
 --NetID comes from /\ increment
-example: cidr 22 -> 8.8.6.0 only matters las non zero ... 6 -> 128 64 32 16 8 4
+example: cidr 22 -> 8.8.6.0 only matters last non zero ... 6 -> 128 64 32 16 8 4
 sixth number is 4 so that is the netid increment:
 *always use 0 network
 NetID: 0 4 8 12 16 ... 244 248 252 
