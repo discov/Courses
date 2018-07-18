@@ -239,3 +239,5 @@ subnettingquestions.com
 How many subnets and hosts per subnet can you get from the network 172.22.0.0/24?
 255 subnets ?
  12864168421
+ 
+ 24816 3264128256 51210242048
