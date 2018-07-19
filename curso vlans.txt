@@ -222,14 +222,14 @@ por lo tanto 22 = 255.255.252.0 ya que 11111111.11111111.11111100.00000000 que e
 example: cidr 22 -> 8.8.6.0 only matters last non zero ... 6 -> 128 64 32 16 8 4
 sixth number is 4 so that is the netid increment:
 *always use 0 network
-NetID: 0 4 8 12 16 ... 244 248 252 
+NetID: 0 4 8 12 16 ... 244 248 252
 
 --Range is equal to netID+1 - nextnetID-1
 *last number is supossed to be for broadcast
 
 --Host ammount is calculated by binary count from right to left putting 0 on mask
 example: wich mask to use for 3k host, 
-11111111.11111111.11111111.11111111 ->	... | 4096 2048 1024 512 256 . 128 64 32 16 8 4 2 1
+11111111.11111111.11111111.11111111 ->	... | 9012 4096 2048 1024 512 .256 128 64 32 16 8 4 2
 												wich means 1111.1111.1111.11100000.00000000
 												wich means 255.255.224.0
  
@@ -241,3 +241,8 @@ How many subnets and hosts per subnet can you get from the network 172.22.0.0/24
  12864168421
  
  24816 3264128256 51210242048
+ 
+ amount of subnetts means the amount of '1's betwen the subnetmask first zero and the ipv4 octet
+ wich depends on its class
+ 
+ 
