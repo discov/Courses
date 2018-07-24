@@ -5,8 +5,13 @@ CCNA vlans/nat/tftp
 Good practice:
 	userdevices/servers low ports
 	switches/routers/etc high ports
-	similar devices straight trough cable
-	di similar cross-over cable
+	both Straigth-through and cross over cables are identical but for the pining
+	Straigth-through has same pining on both ends while cross over has
+	oposite pining (one end receive signal pins connected to transmit pins on the other)
+	similar devices cross over cable ex. pc to pc, pc to router
+	di similar ex. pc <-> other end user device straight-trough
+	pc <-> pc cross-over
+	pc <-> other device straight trough
 	router <-> pc cross-over
 	switch <-> pc straight
 	router <-> switch straight
@@ -290,9 +295,9 @@ number of hosts and make the increment on that one
 
 ---WildCard---
 
-Two methods:
+Two methods: 
 
--Constant	Take constant like 255.255.255 and substract mask
+-Constant	Take constant 255.255.255 and substract mask
 					you end up with something like 0.0.0.128
 					
 -Broadcast address:
@@ -300,5 +305,15 @@ Two methods:
 					and to the left of the next octet dot ex 255.255.224.0 would give
 					31 wich would end up having a wildcard 0.0.31.255
 
+*wildcard used in ospf
+	router ospf 1
+	network 192.168.1.0 0.0.0.255 area 0
+*acl Access List	
+	access-list 10 permit 1.1.1.1 0.0.0.0
+	access-list 20 deny 10.1.1.0 0.0.0.255
 
-
+*nat over pat
+	ip nat pool laz 1.1.1.1  1.1.1.1 netmask 255.255.255.0
+	access-list 1 permit 172.16.1.0  0.0.0.255
+	ip nat inside source list 1 pool laz overload
+	
