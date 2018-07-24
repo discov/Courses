@@ -98,7 +98,7 @@ SubNet
 Hierarchical internetworking model
 propuesto por cisco
 divide redes empresariales en tres capas
-core distribution y access
+core distribution/network y access
 
 access -> end stations servers
 also called desktop layer
@@ -242,7 +242,63 @@ How many subnets and hosts per subnet can you get from the network 172.22.0.0/24
  
  24816 3264128256 51210242048
  
- amount of subnetts means the amount of '1's betwen the subnetmask first zero and the ipv4 octet
+ ** amount of subnetts means the amount of '1's betwen the subnetmask first zero and the ipv4 octet
  wich depends on its class
  
+ ***************************************************************************
+ ---Summarization---
+ means to by means of subnet mask manipulation resume a series of networks into 
+ a single one.
+ *Helps avoid routing bourden
  
+ 10.1.1.0/24
+ 10.1.2.0/24
+ 10.1.3.0/24
+ 10.1.4.0/24
+ -Binary Method 
+ The method consist on taking binary values of the interesting octet
+ 128 64 32 16 8 | 4  2  1
+	0 			...		    0  0  1
+						    0  1  0
+	 ...					    0  1  1
+	 0 				    1  0  0
+We draw the line at the left of the leftmost column that is not only 1 or 0 
+and we take the lowest value as netid, the netmask is the sum of bits to the left
+of the line: 8+8+5=21
+summarization:		10.1.0.0/21
+
+*******************************************************************************
+---VLSM---
+Variable length subnet masking
+only ipv4
+classless routing
+*must use zero network
+*start with highest
+**should be contiguous
+-Method
+-We are given a host amount per node and an ip/cidr, we start with the
+highest host amount by binary counting from 2 to the closest number to 
+the host amount, the next bit indicates our increment
+-Then we calculate with that increment normally the range/broadcast/cidr, 
+-We continue with the rest of the nodes, taking the next available address
+but recalculating the increment, wich is our new range, and so on
+until finish with all nodes
+-Remember to take into account the octet wich contains the apropiate 
+number of hosts and make the increment on that one
+
+*******************************************************************************
+
+---WildCard---
+
+Two methods:
+
+-Constant	Take constant like 255.255.255 and substract mask
+					you end up with something like 0.0.0.128
+					
+-Broadcast address:
+					In this method you take the sum to the right of the magic line
+					and to the left of the next octet dot ex 255.255.224.0 would give
+					31 wich would end up having a wildcard 0.0.31.255
+
+
+

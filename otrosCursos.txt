@@ -30,3 +30,23 @@ Mutative functions:		push, pop, shift, unshift, sort, reverse, splice, delete!?.
 1. Defines Components with them having or not props and state
 2. Function that takes props as input and returns jsx to be rendered
 
+----------------------------------------
+
+.NET
+
+Ciclo de paginas
+Res. Inicializacion, instanciacion, restauracion y mantenimiento(viewstate),
+corre manejadores de eventos, rendereo
+
+Estados/Eventos
+
+Preinit:
+			Revisa isPostBack
+			Crea/Recrea objetos dinámicos
+			Se establece pagina maestra dinamicamente
+			Se establece temas de manera dinámica
+		*Aun no se carga viewstate
+Init:
+			Corre cuando cada contros a sido inicializado
+			Se establecen UniqueID's 
+			
