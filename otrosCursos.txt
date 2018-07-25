@@ -44,16 +44,47 @@ Preinit:
 			Revisa isPostBack
 			Crea/Recrea objetos dinámicos
 			Se establece pagina maestra dinamicamente
-			Se establece temas de manera dinámica
+			Se establecen temas de manera dinámica
 		*Aun no se carga viewstate
 Init:
-			Corre cuando cada contros a sido inicializado
-			Se establecen UniqueID's 
+			Corre cuando cada control a sido inicializado
+			Se establecen UniqueID's y se aplican skin settings
+			Se utiliza para para leer o inicializar propiedades de controles
+			Se dispara el evento initi desde el control mas abajo en el arbol
+				hasta llegar a la pagina misma
+InitComplete:
+			Valores del Viewstate no han sido cargados aun
 			
+
+Stages:
+				Request:
+					Se valida si es necesario compilar pagina o enviar version cacheada
+				Start:
+					Se establece isPostBack y uiculture, se setean request y response
+				Initialization:
+					Se hacen disponibles los controles en la pagina, se establece su UniqueID,
+					se establecen master page y temas segun aplique
+					*En este punto aun no se restauran valores de viewstate a los controles
+				Load:
+					Si se trata de un postback se cargan propiedades de controles se recuperan
+					del viewstate y controlstate
+				PostbackEventHandling:
+					Si se trata de un postback se llaman los eventhandlers, despues el metodo
+					Validate de todos los controles validadores es llamado, excepto en el caso
+					de eventos que provocan validacion, estos son validados antes de
+					ejecutar eventhandler
+				Rendering:
+					Se salva viewstate antes de renderear, se llama el metodo render de cada control
+					proveyendo un textwriter que escribe su output al objeto outputstream de la
+					propiedad Response de la pagina
+				Unload:
+					Es disparado tras finalizar de renderear y enviar la pagina al cliente, y esta está lista para ser
+					descartada
+				
 ------------------------------------------------
 
 Python
 
 Everything in python is an object
  0>x>1 is valid on python conditionals
- 
+  
