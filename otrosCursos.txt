@@ -38,29 +38,14 @@ Ciclo de paginas
 Res. Inicializacion, instanciacion, restauracion y mantenimiento(viewstate),
 corre manejadores de eventos, rendereo
 
-Estados/Eventos
 
-Preinit:
-			Revisa isPostBack
-			Crea/Recrea objetos dinámicos
-			Se establece pagina maestra dinamicamente
-			Se establecen temas de manera dinámica
-		*Aun no se carga viewstate
-Init:
-			Corre cuando cada control a sido inicializado
-			Se establecen UniqueID's y se aplican skin settings
-			Se utiliza para para leer o inicializar propiedades de controles
-			Se dispara el evento initi desde el control mas abajo en el arbol
-				hasta llegar a la pagina misma
-InitComplete:
-			Valores del Viewstate no han sido cargados aun
 			
 
 Stages:
 				Request:
-					Se valida si es necesario compilar pagina o enviar version cacheada
+					Se valida si es necesario compilar pagina(incia ciclo) o enviar version cacheada
 				Start:
-					Se establece isPostBack y uiculture, se setean request y response
+					Se establece se setean request, response, ispostback, uiculture
 				Initialization:
 					Se hacen disponibles los controles en la pagina, se establece su UniqueID,
 					se establecen master page y temas segun aplique
@@ -80,6 +65,24 @@ Stages:
 				Unload:
 					Es disparado tras finalizar de renderear y enviar la pagina al cliente, y esta está lista para ser
 					descartada
+
+					
+					
+Eventos:
+				Preinit:
+							Revisa isPostBack
+							Crea/Recrea objetos dinámicos
+							Se establece pagina maestra dinamicamente
+							Se establecen temas de manera dinámica
+						*Aun no se carga viewstate
+				Init:
+							Corre cuando cada control a sido inicializado
+							Se establecen UniqueID's y se aplican skin settings
+							Se utiliza para para leer o inicializar propiedades de controles
+							Se dispara el evento initi desde el control mas abajo en el arbol
+								hasta llegar a la pagina misma
+				InitComplete:
+							Valores del Viewstate no han sido cargados aun
 				
 ------------------------------------------------
 
@@ -87,4 +90,6 @@ Python
 
 Everything in python is an object
  0>x>1 is valid on python conditionals
+ 
+ https://www.codeproject.com/Tips/638653/Compress-the-viewstate-Information
   
