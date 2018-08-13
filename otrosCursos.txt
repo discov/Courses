@@ -30,6 +30,21 @@ Mutative functions:		push, pop, shift, unshift, sort, reverse, splice, delete!?.
 1. Defines Components with them having or not props and state
 2. Function that takes props as input and returns jsx to be rendered
 
+Create components:
+	React:																		React native
+class MyComponent extends React.Component{			var MyComponent = React.createClass( {
+	//some stuff																render: {
+	render( ){																		return //some jsx
+		return //some jsx													}
+	}																			} );
+}																				
+Rendering components
+
+ReactdDOM.render(<MyComponent/>, document.getElementById('someContainer') );
+
+Some Functions:
+React.isValidElement(object)
+
 ----------------------------------------
 
 .NET
@@ -83,7 +98,42 @@ Eventos:
 								hasta llegar a la pagina misma
 				InitComplete:
 							Valores del Viewstate no han sido cargados aun
-				
+							
+							
+							
+------------------------------------------------
+
+ES6
+
+Arrow Function:	
+	(params) => returnValue
+	si solo un parametro omitir parentesis
+import/export:
+	export keyword before something to make it available for import
+	export default to make it the default one
+	import someName from './file.js' imports default import from file.js into someName
+	import {name} from './file.js' imports object name from file.js (named export)
+	import names can also be comma separated ej. import {name1,name2,name3} from 'file.js'
+
+spread:	
+	function(...args) expande elementos, funciona en arreglos y objetos.
+	sustituto de Object.assign({destino});
+let:
+	equivalent to var but for few details
+	nearest block scope / var scope is nearest function
+	not added as property to global window object / var is added
+	avoids closure problem in some situations
+closure:
+	combinacion de una funcion y el ambito lexico en que se declaro, es decir
+	tiene acceso a variables locales presentes en su declaracion
+	function ambito(x){return function(y){return x+y;};} var sum = ambito(10);
+		x var in sum is set o 10, so calling it like sum(n) will return n+10;
+	Util como sustituto a un objeto con un solo metodo o para emular metodos privados
+Querys:
+	document.querySelector();
+Events:
+	document.getElementby...().onClick = someFunc();
+
 ------------------------------------------------
 
 Python
@@ -103,4 +153,40 @@ Everything in python is an object
  E1 Europa	32	0-sync 16-sign
  HMP	Host Media Processing
  VoIP Gateway	-	converts telephony traffic into ip for transmission
+ 
+ 
+ 
+ -----------------------------------------------
+ 
+ Galateaui
+	
+	function detectaLlamada(){
+		if(temp1.innerText!='Esperando llamada...' && temp0.innerText=='Disponible') {
+			var audioLlamada = new Audio('audio_file.mp3');
+			console.log('llamada');
+			audioLlamada.play();			
+		}
+	}
+	setInterval( detectaLlamada(), 1000)
   
+  <p class="agentStateTxt">Diálogo</p>
+  
+  <p class="timeCall outboundDesign"><!-- react-text: 4642 -->00:<!-- /react-text --><span class="timeCallBold outboundDesign">01:10</span></p>
+  
+  document.querySelector('p.waitingCallTextInfo').innerText
+  document.querySelector('p.timeCall') ? 1 : 0
+  
+  setInterval(function(){console.log(document.querySelector('p.timeCall').innerText=="00:00" ? 1 : 0)}, 1000)
+  
+  function checar(){
+	var i = 1;
+	var clk = document.querySelector('p.timeCall');
+	while(i<200){
+	  setTimeout(function (){
+	    if(clk){
+	      console.log(clk.innerText=="00:00:00" ? "talking": "waiting...");
+	    }else console.log(':c');
+	  },i*100);
+	  i++;
+	}
+  }
