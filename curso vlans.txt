@@ -324,3 +324,4 @@ Two methods:
 
 Sip
 
+sip.from.user eq 5547774243 || sip.to.user eq 5547774243 || rtp.ssrc
