@@ -108,21 +108,32 @@ ES6
 Arrow Function:	
 	(params) => returnValue
 	si solo un parametro omitir parentesis
+	si ningun parametro parentesis vacio
 import/export:
 	export keyword before something to make it available for import
 	export default to make it the default one
 	import someName from './file.js' imports default import from file.js into someName
 	import {name} from './file.js' imports object name from file.js (named export)
 	import names can also be comma separated ej. import {name1,name2,name3} from 'file.js'
-
-spread:	
+	import * as someName from './.......' to get all named imports under the someName object
+spread/rest ...	:
 	function(...args) expande elementos, funciona en arreglos y objetos.
 	sustituto de Object.assign({destino});
+spread:	
+	
+	Used to split up array elements or  object properties
+	const newArray = [..args,var1,var2]
+	const newObject = { ...args, prop1:"prop1" }
+Rest:
+	Used to merge a list of function arguments into an array
+	function someFunc(...args){return args.otherFunc();}
 let:
 	equivalent to var but for few details
 	nearest block scope / var scope is nearest function
 	not added as property to global window object / var is added
 	avoids closure problem in some situations
+const:
+	Block-scoped / Cant be reasigned / Cant be redeclared
 closure:
 	combinacion de una funcion y el ambito lexico en que se declaro, es decir
 	tiene acceso a variables locales presentes en su declaracion
@@ -133,7 +144,46 @@ Querys:
 	document.querySelector();
 Events:
 	document.getElementby...().onClick = someFunc();
-
+Classes:
+	constructor() no longer necesary in newway
+	super() no longer needed in newway
+	methods oldway mymethod(){...} newway mymethod = ()=>{}
+	properties oldway this.myprop(inside constructor) newway myprop
+	extends for inheritance
+Destructuring:
+	Array:	[var1,var2] = [1,2] stuff on the right on to left variables
+				position dictates where is stuff moved (var1 == 1 and var2 == 2)
+	Object:	{prop1} = {prop1:"prop1"} value of property from right object
+				on to left var (prop1 == "prop1")
+				name of left var dictates what gets taken from right object
+Primitive types:
+	Boolean,numbers,strings
+Reference types:
+	objects, arrays
+	pointer to section in memory
+	var obj2 = obj1 will only copy pointer not value
+	further changes affect both
+ArrayFunctions:
+	const array2 = array1.map( (x)=>{ return x * 2; } ); // returns array with new values / appliesTo assigned+undefined / non-mutative 
+	const index = array1.findIndex( index0 =>{ index0=="something"} ); // returns thruty index / non-mutative / takes everyIndex / -1 ifnot
+	const value = array1.find( some =>{ some=="something" } ); // returns thruty value / non-mutative / applies to everyIndex / undefined ifnot
+	const array2 = array1.filter( (some)=>{ some=="something" });  // returns array with thruty values / non-mutative / invoked for assigned values
+	const value = array1.reduce( ( total, currVal ) => { return total+currVal }, startingVal ); // returns total of operation / non-mutative 
+	const array2 = array0.concat(array1); //returns array0Elements + elements(if array) value (if not array) / non-mutative(ifPrimitiveArg) / non-recursive
+	const array2 = array1.slice( [start,amount] || [amount] );  // returns shallow copy of segment of array / non-mutative / negative amount means right offset
+	const  array2 = array1.splice(start, [ amount[ , items ] ]) // insert and/or remove elements in array
+	
+Factory function:
+	const someObj =  (state)=>( {someMethod: ()=>console.log("some dialog"+state) } )
+Object by Composition:
+	*grouped by what they do instead of what they are
+	const someObj = {
+		let someProps = {...}
+		return Object.assign(
+			{ }, FacFunc0(state),someFacFunc1(state),...,
+		)
+	}
+	
 ------------------------------------------------
 
 Python
