@@ -22,7 +22,6 @@ js array.splice(start,amountDel,items) borra y/o inserta items apartir de un ind
 	*muta el arreglo
 js array.slice(inicio, fin)	Toma elementos en rango sin incluir fin, regresa nuevo arreglo
 	*Copia arreglo
-js concat
 	
 Mutative functions:		push, pop, shift, unshift, sort, reverse, splice, delete!?.
 
@@ -42,6 +41,15 @@ Rendering components
 
 ReactdDOM.render(<MyComponent/>, document.getElementById('someContainer') );
 
+Conventions:
+classes 	upper
+functions 	lower
+exports		upper
+variables	lower
+files		upper
+html		lower
+custComp	upper
+`
 Some Functions:
 React.isValidElement(object)
 
@@ -116,6 +124,8 @@ import/export:
 	import {name} from './file.js' imports object name from file.js (named export)
 	import names can also be comma separated ej. import {name1,name2,name3} from 'file.js'
 	import * as someName from './.......' to get all named imports under the someName object
+	*relative paths ./ seeks on item container
+	
 spread/rest ...	:
 	function(...args) expande elementos, funciona en arreglos y objetos.
 	sustituto de Object.assign({destino});
