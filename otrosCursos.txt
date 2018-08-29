@@ -22,7 +22,6 @@ js array.splice(start,amountDel,items) borra y/o inserta items apartir de un ind
 	*muta el arreglo
 js array.slice(inicio, fin)	Toma elementos en rango sin incluir fin, regresa nuevo arreglo
 	*Copia arreglo
-js concat
 	
 Mutative functions:		push, pop, shift, unshift, sort, reverse, splice, delete!?.
 
@@ -31,20 +30,94 @@ Mutative functions:		push, pop, shift, unshift, sort, reverse, splice, delete!?.
 2. Function that takes props as input and returns jsx to be rendered
 
 Create components:
-	React:																		React native
-class MyComponent extends React.Component{			var MyComponent = React.createClass( {
-	//some stuff																render: {
-	render( ){																		return //some jsx
-		return //some jsx													}
-	}																			} );
-}																				
+
+with create class:
+	=>var MyComponent = React.createClass({ render: { return //some jsx} });
+
+ES6 syntactic sugar style:
+class-based components (also referred to as "containers", "smart" or "stateful" components) 
+	=> class Cmp extends Component { render () { return <div>some JSX</div> } }
+
+Functional components (also referred to as "presentational", "dumb" or "stateless" components - more about this later in the course) 
+	=> const cmp = () => { return <div>some JSX</div> } (using ES6 arrow functions as shown here is recommended but optional)
+	
 Rendering components
 
-ReactdDOM.render(<MyComponent/>, document.getElementById('someContainer') );
+ReactDOM.render(<MyComponent/>, document.getElementById('someContainer') );
 
+
+
+Conventions:
+classes 	upper
+functions 	lower
+exports		upper
+variables	lower
+files		upper
+html		lower
+custComp	upper
+eventhandler	"myEvent"+Handler lower
+`
 Some Functions:
 React.isValidElement(object)
 
+ **JSX:
+*CurlyBraces to inject js inside jsx
+*Class is js reserved word so we use className for jsx
+ **Props:
+*Only changes in props  and/ or state  trigger React to re-render 
+	components and potentially update the DOM in the browser
+*Props allow passing data from parent to child component
+*Accesd props: function based comp {props.prop} / class based {this.props.prop}
+*props.children reserved prop outputs items betwen component tags
+*props trigger ui update cause they pass data down component three
+ **State:
+*state is property of component class meaning only class based components have it
+*state change triggers ui update as well
+*state only available from its component
+*state access {this.state.prop}
+ **Events:
+*jsx events dont need() on function, must only pass reference
+*if () on jsx events they will be called on object render and get buggy
+*only use () if event passed with arrow function
+
+Events:
+	Clipboard:	onCopy onCut onPaste | properties: DOMDataTransfer clipboardData
+	Composition:	onComposition(End/Start/Update) | properties: string data
+	KeyBoard:	onKey(Down/Press/Up) | properties: boolean {altKey, ctrlKey, getModifierState(key), metaKey, repeat, shiftKey }
+																						number { charCode, keyCode, location, wich }
+																						string { key, locale }
+	Focus:	onFocus onBlur | properties: DOMEventTarget relatedTarget
+	Form:		onChange onInput onInvalid onSubmit
+	Mouse:	onClick onContextMenu onDoubleClick onDrag onDragEnd onDragEnter onDragExit onDragLeave onDragOver 
+					onDragStart onDrop onMouseDown onMouseEnter onMouseLeave onMouseMove onMouseOut onMouseOver
+					onMouseUp  *Enter and Leave propagate from element being left ot the other
+											*No ordinary bubbling and no capture phase
+											| properties: boolean { altKey, ctrlKey, getModifierState(key), metaKey, shiftKey }
+																  number { button, buttons, clientX, clientY, pageX, pageY, screenX, screenY }
+																  DOMEventTarget relatedTarget
+	Selection:	onSelect
+	TouchEvents:	onTouch(Cancel/End/Start/Move) | properties: boolean { altKey, ctrlKey, getModifierState(key), metaKey, shiftKey }
+																													DOMTouchList { changedTouches, targetTouches, touches }
+
+	UI:	onScroll | properteies: number detail / DOMAbstractView view
+	Wheel:	onWheel	|	number	deltaMode, deltaX, deltaY, deltaZ
+	Media:	onAbort onCanPlay onCanPlayThrough onDurationChange onEmptied onEncrypted onEnded onError onLoadedData 
+					onLoadedMetadata onLoadStart onPause onPlay onPlaying onProgress onRateChange onSeeked onSeeking onStalled 
+					onSuspend onTimeUpdate onVolumeChange onWaiting
+	ImageEvents:	onLoad onError
+	AnimationEvents:	onAnimationStart onAnimationEnd onAnimationIteration | properties string { animationName, pseudoElement }
+																																								float { elapsedTime }
+	Transition:	onTransitionEnd	|	properites:	string { propertyName, pseudoElement }, float { elapsedTime }
+	Other:	onToggle
+	
+Passing Arguments to eventHandler:
+	-you can use click={myEventHandler.bind(this,'myarg') }
+	-use arrowfunc	allowing correct use of pharentesis click={ ( )=>this.myEventHandler('myarg') }
+			it acts like an anonymous func wich will be executed on click, ( ) can take event as argument
+	** Bind usage is prefered, arrow function tends to re-render object to often (inefficient)
+	
+	
+	
 ----------------------------------------
 
 .NET
@@ -116,6 +189,8 @@ import/export:
 	import {name} from './file.js' imports object name from file.js (named export)
 	import names can also be comma separated ej. import {name1,name2,name3} from 'file.js'
 	import * as someName from './.......' to get all named imports under the someName object
+	*relative paths ./ seeks on item container
+	
 spread/rest ...	:
 	function(...args) expande elementos, funciona en arreglos y objetos.
 	sustituto de Object.assign({destino});
@@ -179,9 +254,7 @@ Object by Composition:
 	*grouped by what they do instead of what they are
 	const someObj = {
 		let someProps = {...}
-		return Object.assign(
-			{ }, FacFunc0(state),someFacFunc1(state),...,
-		)
+		return Object.assign({ }, FacFunc0(state),someFacFunc1(state),...,)
 	}
 	
 ------------------------------------------------
