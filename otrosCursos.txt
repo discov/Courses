@@ -72,6 +72,7 @@ React.isValidElement(object)
 *state change triggers ui update as well
 *state only available from its component
 *state access {this.state.prop}
+*jsx events dont need() on function, must only pass reference
 
 
 ----------------------------------------
