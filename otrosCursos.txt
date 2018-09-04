@@ -22,7 +22,7 @@ js array.splice(start,amountDel,items) borra y/o inserta items apartir de un ind
 	*muta el arreglo
 js array.slice(inicio, fin)	Toma elementos en rango sin incluir fin, regresa nuevo arreglo
 	*Copia arreglo
-	
+
 Mutative functions:		push, pop, shift, unshift, sort, reverse, splice, delete!?.
 
 --1.Clases vs 2.Functional components--
@@ -65,6 +65,8 @@ React.isValidElement(object)
 *Class is js reserved word so we use className for jsx
 *Only changes in props  and/ or state  trigger React to re-render 
 	components and potentially update the DOM in the browser
+**Create-react-app:
+*You can import css in js file thanks to webpack
  **Props:
 *Props allow passing data from parent to child component
 *Accesd props: function based comp {props.prop} / class based {this.props.prop}
@@ -116,6 +118,7 @@ Passing Arguments to eventHandler:
 	-use arrowfunc	allowing correct use of pharentesis click={ ( )=>this.myEventHandler('myarg') }
 			it acts like an anonymous func wich will be executed on click, ( ) can take event as argument
 	** Bind usage is prefered, arrow function tends to re-render object to often (inefficient)
+	*event object is passed automatically to function 
 	
 ----------------------------------------
 
@@ -189,6 +192,7 @@ import/export:
 	import names can also be comma separated ej. import {name1,name2,name3} from 'file.js'
 	import * as someName from './.......' to get all named imports under the someName object
 	*relative paths ./ seeks on item container
+	*imprt can ommit extension if is js file
 	
 spread/rest ...	:
 	function(...args) expande elementos, funciona en arreglos y objetos.
@@ -256,6 +260,12 @@ Object by Composition:
 		return Object.assign({ }, FacFunc0(state),someFacFunc1(state),...,)
 	}
 	
+------------------------------------------------
+JS gen stuff
+
+*If set value to input, yo need onchange event so is not readonly
+
+
 ------------------------------------------------
 
 Python
