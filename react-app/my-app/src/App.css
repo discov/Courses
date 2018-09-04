@@ -39,28 +39,42 @@
   background-color:#222;
   vertical-align: middle;
   padding: 2vh 0px;
+  min-width:250px;
+  max-width:350px;
 }
 
 .divInput{
-  width:20vw;
+  width:50%;
   display:inline-block;
   vertical-align: middle;
 }
+.divInput input{
+  width:90%;
+  margin-bottom: 1%;
+}
 .divLogo{
-  width: 12vw;
+  width: 30%;
   display:inline-block;
   vertical-align: middle;
 
 }
 .logoInput{
-  width:10vw;
+  width:90%;
 }
 .buttonInput{
   display:inline-block;
   width:30%;
-  color:rgba(255, 255, 255, 0.842);
+  color:rgba(255, 255, 255, 0.841);
   background-color:#189eb2cf;
+  border-radius:5%;
+  min-width:100px;
+  
+  vertical-align: middle;
 }
+.buttonInput a{
+  margin:calc(20px + 1vw);
+}
+
 
 /* --------- */
 

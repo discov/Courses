@@ -19,8 +19,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="wrapper">
-        <InputForm/>
+  
         </div>
+        <InputForm/>
       </div>
     );
   }
