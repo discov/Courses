@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import Logo from './logoReact.js';
+import InputForm from './InputForm';
 import './App.css';
 
 class App extends Component {
   render() {
+    let anim = [
+        {animationName: "App-logo-spin"},
+        {animationDuration: "2000ms"},
+        {animationTimingFunction: "linear"},
+        {animationDelay: "0s"},
+        {animationIterationCount: "infinite"},
+        {animationDirection: "normal"},
+        {animationFillMode: "none"},
+        {animationPlayState: "running"}
+    ];
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <h1>Hi i'm a react app D:!</h1>
+        <div className="wrapper">
+        <InputForm/>
+        </div>
       </div>
     );
   }

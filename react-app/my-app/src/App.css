@@ -1,7 +1,11 @@
 .App {
   text-align: center;
 }
-
+.wrapper{
+  text-align:center;
+  margin:0 auto;
+  vertical-align: middle;
+}
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -22,7 +26,47 @@
   font-size: large;
 }
 
+.logoReact-logo{
+  
+  width: 10vw;
+}
+
+/* InputForm */
+.wrapperInput{
+  text-Align:center;
+  margin:0 auto;
+  width:45vw;
+  background-color:#222;
+  vertical-align: middle;
+  padding: 2vh 0px;
+}
+
+.divInput{
+  width:20vw;
+  display:inline-block;
+  vertical-align: middle;
+}
+.divLogo{
+  width: 12vw;
+  display:inline-block;
+  vertical-align: middle;
+
+}
+.logoInput{
+  width:10vw;
+}
+.buttonInput{
+  display:inline-block;
+  width:30%;
+  color:rgba(255, 255, 255, 0.842);
+  background-color:#189eb2cf;
+}
+
+/* --------- */
+
+/*Animation*/
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
