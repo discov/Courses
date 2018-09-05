@@ -1,10 +1,23 @@
+
 .App {
+  
+}
+.inout{
   text-align: center;
+  background-color: tomato;
+  padding: 5vw 1vw;
+  vertical-align: middle;
+  width:50%;
+  min-width: 280px;
+  margin: 14vh auto;
+  max-width:800px;
+  height: 50%;
 }
 .wrapper{
   text-align:center;
   margin:0 auto;
   vertical-align: middle;
+  
 }
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -42,6 +55,17 @@
   min-width:250px;
   max-width:350px;
 }
+.wrapperOutput{
+  text-Align:center;
+  margin:0 auto;
+  width:45vw;
+  background-color:#222;
+  vertical-align: middle;
+  padding: 2vh 0px;
+  min-width:250px;
+  max-width:350px;
+  padding-bottom:0px;
+}
 
 .divInput{
   width:50%;
@@ -51,6 +75,7 @@
 .divInput input{
   width:90%;
   margin-bottom: 1%;
+  text-align: center;
 }
 .divLogo{
   width: 30%;
@@ -63,18 +88,31 @@
 }
 .buttonInput{
   display:inline-block;
-  width:30%;
+  padding: 0.5vw;
   color:rgba(255, 255, 255, 0.841);
   background-color:#189eb2cf;
   border-radius:5%;
+  text-align: center;
   min-width:100px;
   
   vertical-align: middle;
+  margin-top: 15px;
 }
 .buttonInput a{
   margin:calc(20px + 1vw);
+  cursor: pointer;
+  width:100%;
 }
 
+.divOutput p{
+  background-color: white;
+  width: 65%;
+  border-radius: 3%;
+  border: 1px solid aliceblue;
+  margin: 6px auto;
+  height: 18px;
+    
+}
 
 /* --------- */
 

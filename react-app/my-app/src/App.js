@@ -2,26 +2,45 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import Logo from './logoReact.js';
 import InputForm from './InputForm';
+import OutputForm from './OutputForm';
 import './App.css';
 
 class App extends Component {
+  state = {
+    name:"Anonimo",
+    user:"invitado",
+    password:"12345"
+  }
+  textChangeHandler = (event)=>{
+    this.setState({
+      [event.target.name]:event.target.value
+    });
+  }
+  inputFocusHandler= (event)=>{
+    event.target.value="";
+  }
   render() {
-    let anim = [
-        {animationName: "App-logo-spin"},
-        {animationDuration: "2000ms"},
-        {animationTimingFunction: "linear"},
-        {animationDelay: "0s"},
-        {animationIterationCount: "infinite"},
-        {animationDirection: "normal"},
-        {animationFillMode: "none"},
-        {animationPlayState: "running"}
-    ];
     return (
       <div className="App">
-        <div className="wrapper">
-  
+      
+        <div className="inout">
+
+          <div className="wrapper">
+            <InputForm onChange={this.textChangeHandler.bind(this)}
+                        onFocus={this.inputFocusHandler.bind(this)}
+                        name={this.state.name}
+                        user={this.state.user}
+                        password={this.state.password}
+            />
+          </div>
+          <div className="wrapper">
+            <OutputForm name={this.state.name}
+                        user={this.state.user}
+                        password={this.state.password}/>
+          </div>
+
         </div>
-        <InputForm/>
+
       </div>
     );
   }
