@@ -121,6 +121,13 @@ Passing Arguments to eventHandler:
 	** Bind usage is prefered, arrow function tends to re-render object to often (inefficient)
 	*event object is passed automatically to function 
 	
+	
+Conditions:
+		=Inside return=
+	*use ternary ( condition ?  "when true": "when false)
+	*put jsx html inside { html}
+		=Inside render=
+	*   
 ----------------------------------------
 
 .NET
