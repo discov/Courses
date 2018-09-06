@@ -182,8 +182,25 @@ Eventos:
 				InitComplete:
 							Valores del Viewstate no han sido cargados aun
 							
-							
-							
+	
+CLI		Common language infraestructure
+			.Net Works with any language cli compliant
+CLR		Common language runtime
+			.Net Virtual Machine
+Languages that comply
+	C# F# L# A# IronRuby
+++++++++
+C#:
+
+Types:
+	-Primitives/value go to stack,store value, and they are int,float,bool,byte,char,struct,enums, etc, staticAlloc
+	-Reference/pointer go to heap, store reference to data dinamycAlloc class, Array, interface, delegate, object, string
+		+Delegates work like function pointer, type safe and secure, method signature. Similar to js saving function in some var
+		+Dynamic, enable operation  type checking at runtime, dynamic variable are compiled as objects
+		+Interfaces contain signatures of methods, properties,events, or indexers wich must be implemented by struct or class
+		
+		
+		
 ------------------------------------------------
 
 ES6
@@ -330,3 +347,50 @@ Everything in python is an object
 	  i++;
 	}
   }
+  
+  ----------------------------------------------------------
+  
+  REST
+	
+	Representational State Transfer
+	uri -> uniform resource identifier
+	todo es un recurso
+	todo accesible por uris
+	usar metodos estandar http get post, put, delete head option trace connect
+	recursos multiples representaciones json
+	comunicacion sin estado, peticiones independientes para proteger de cambios
+	15 años
+	
+	-peticion:
+	GET /relativeaddress/element HTTP/1.1
+	Host: nombrehost-mi-servidor
+	Accept: application/json
+	
+	-respuesta:
+	HTTP/1.1 200 OK
+	Content-Type: application/json
+	Content-Lenght: 120
+
+	{
+		"objeto":{
+			"prop1": "data0",
+			"prop2": "data1",
+			"prop3":  {
+				subprop1:"subdata1",
+				subprop2:"subdata2",
+				subprop3:"subdata3",
+			}
+		}
+	}
+	
+	metodos http seguros, no modifica ni cambia su estado
+	metodos http idempotentes, su respuesta es siempre la misma
+		GET: 	Seguro? Si, 	Idempotente? Si
+		POST: 	Seguro? No, 	Idempotente? No
+		PUT: 	Seguro? No, 	Idempotente? Si
+		DELETE: Seguro? No,	Idempotente? Si
+	
+	
+https://developer.android.com/jetpack/docs/getting-started
+Revisar firebase
+restful api c#	https://www.youtube.com/watch?v=JeIE3jzAxHU
